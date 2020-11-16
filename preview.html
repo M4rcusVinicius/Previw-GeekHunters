@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="preview.css">
+   <script src="https://kit.fontawesome.com/7128c13a32.js" crossorigin="anonymous"></script>
+   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> 
+   <script src="https://kit.fontawesome.com/7128c13a32.js" crossorigin="anonymous"></script>
+   <title>NavBar</title>
+</head>
+<body>
+   <nav class="nav">
+      <ul>
+         <li><i class="fas fa-bars icon"></i></li>
+         <li><img class="logo" src="./Marca.png"></li>
+         <li><i class="fas fa-search icon"></i></li>
+      </ul>
+   </nav>
+   
+   <main>
+   <img src="Banner.png" style="width: 100%;">
+      <div class="article">
+         
+         <h3>Este artigo tem como objetivo te ensinar a desenvolver uma barra de navegação responsiva com animação utilizando apenas um CSS simples. Melhorando a navegação e o aproveitamento dos clientes do seu site sem muita dificuldade.</h3>
+         <h3>Neste artigo você vamos utilizar conceitos fundamentais de <strong>FlexBox</strong>, que vai nos ajudar a organizar espacialmente os itens da barra de navegação. As animações serão feitas através da função  :hover  do CSS, mudando a disposição dos elementos da NavBar quando o usuário passar o mouse por cima.</h3>
+         
+         <div class="links">
+            <a class="download button" href="../NavBar.zip" target="_blank">
+               <i class="fas fa-cloud-download-alt"></i>
+               <span class="download-text">Baixe o arquivo</span>
+            </a>
+
+            <a class="git button" href="https://github.com/M4rcusVinicius/Simple_Web_Projects/tree/main/NavBar" target="_blank">
+               <i class="fab fa-github"></i>
+               <span class="git-text">Visualizar no GitHub</span>
+            </a>
+
+         </div>
+
+         <h1>Conteúdo</h1>
+         
+         <ul class="conteudo">
+            <li><a href="#implementando-ao-html">Implementando ao HTML</a></li>
+            <li><a href="#exemplo-de-html">Exemplo de HTML</a></li>
+            <li><a href="#formatando-o-css">Formatando o CSS</a></li>
+            <li><a href="#customizando-os-itens">Customizando os itens</a></li>
+            <li><a href="#animando-a-navbar">Animando a NavBar</a></li>
+            <li><a href="#animando-os-itens">Adicionando animações nos itens</a></li>
+            <li><a href="#oque-aprendemos">O que aprendemos</a></li>
+         </ul>
+         
+         <h1 id="implementando-ao-html">Implementando ao HTML</h1>
+         <h3>Primeiramente precisamos criar uma classe contendo toda a nossa barra de navegação, o HTML possui uma tag específica chamada &lt;nav&gt;, em seguida vamos criar uma lista &lt;ul&gt;, contendo cada item &lt;li&gt; com uma um link &lt;a&gt; contendo o texto e o ícone.</h3>
+         <xmp>
+<nav class="navbar">
+   <ul class="navbar-nav">
+      <li class="nav-item">
+         <a href="#" class="nav-link">
+            <span class="nav-text">Config.</span>
+            <i class="fa fa-cog"></i>  
+         </a>
+      </li>
+   </ul>
+</nav>
+         </xmp>
+         <h3>Essa é uma estrutura básica de um item da NavBar, você pode adicionar quantos itens quiser, apenas acrescentando mais itens na lista "li".</h3>
+         <h2>Adicionando ícones</h2>
+         <h3>Os ícones utilizados são importados de <a href="#" class="link">Font Awesome</a>, com mais de 5000 ícones personalizáveis para que você possa escolher o melhor para o seu projeto.</h3>
+         <h3><red>Atenção:</red> <strong>Não se esqueça de colocar o script do Fonts Awesome no seu &lt;head&gt;</strong></h3>
+         <xmp>
+<script src="https://kit.fontawesome.com/7128c13a32.js" crossorigin="anonymous"></script>
+         </xmp>
+         
+       <h1 id="formatando-o-css">Formatando o CSS</h1>
+         <h3>Agora precisamos utilizar o CSS para remover as margens padrão no navegador.</h3>
+         <xmp>
+body {
+   font-family: 'Times New Roman', Times, serif;
+   margin: 0;
+   padding: 0;
+   }             
+         </xmp>
+         <h3>Para posicionar a barra de navegação, utilize o  position: fixed;  para manter a barra fixa na tela, mesmo que naveguemos na página para cima e para baixo. A altura possui 100vh, ou seja, 100% da viewport (tela).</h3>
+         <xmp>
+.navbar {
+   top: 0;
+   width: 70px;
+   height: 100vh;
+   position: fixed;
+   background-color: #212325;
+   transition: width 600ms ease;
+}   
+         </xmp>
+
+         <h2 id="customizando-os-itens">Customizando os itens</h2>
+         <h3>Delimite o espaço ocupado pela lista &lt;ul class="navbar-nav"&gt; e utilize o flexbox para alinhar verticalmente os itens da lista. Utilizamos  margin-top: auto;  para posicionar o último item da lista no fundo.</h3>
+         <xmp>
+.navbar-nav {
+   list-style: none;
+   padding: 0;
+   margin: 0;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   height: 100%;
+}
+   
+.nav-item {
+   width: 100%;
+   text-align: center;
+   font-size: 20px;
+   letter-spacing: 0.3ch;
+   width: 100%;
+}
+
+.nav-item:last-child {
+   margin-top: auto; 
+}
+
+.nav-logo {
+   background-color: #0e1114;
+   font-weight: bold;
+}
+             
+         </xmp>
+         <h3>Utilize novamente o Flexbox para alinhar o texto e o ícone horizontalmente, para isso digite  display: flex; na classe pai (nav-link). Tire a formatação padrão da lista e dos links com o   text-decoration: none;.
+         </h3>
+         <xmp>
+.nav-link {
+   display: flex;
+   align-items: center;
+   height: 50px;
+   text-decoration: none;
+   color: #cad9e7;
+   transition: 200ms;
+
+   }
+   
+   .nav-link i {
+   width: 2rem;
+   min-width: 2rem;
+   margin-left: 16px;
+   transition: 600ms;
+   }           
+         </xmp>
+         <h3>Posicione o texto para fora da página do lado esquerdo, para que ele não esteja visível.</h3>
+         <xmp>
+.nav-text {
+   display: inline;
+   position: absolute;
+   left: -999px;
+}             
+         </xmp>
+
+         <h1 id="animando-a-navbar">Animando a NavBar</h1>
+         <h3>Aplicamos o transition anteriormente para que os movimentos sejam mais lentos e possamos ver a animação. Para que a animação aconteça quando o mouse passar por cima da NavBar, vamos utilizar o .navbar:hover.</h3>
+         <xmp>
+/* Aumenta a NavBar para 200px */
+.navbar:hover {
+  width: 200px;
+}
+ 
+/* Move o texto de -999px para 15px a partir do caanto esquerdo */
+.navbar:hover .nav-text {
+  left: 15px;
+}
+ 
+/* Move os itens para a direita */
+.navbar:hover .nav-item i{
+  margin-left: 150px;
+}
+
+         </xmp>
+         <h3>Coloque um hover para mudar a cor dos itens quando o mouse passar por cima.</h3>
+         <xmp>
+.nav-link:hover {
+   background: #292d31;
+   color: rgb(142, 181, 255);
+}             
+         </xmp>
+
+         <h2 id="animando-os-itens">Adicionando animações nos itens</h2>
+         <h3>Como o posicionamento dos itens são dinâmicos, os itens se posicionam automaticamente ao alterar o tamanho de um dos ítens. Pensando nisso podemos criar uma foto de perfil que com um layout um pouco diferente dos outros itens.</h3>
+         <h3>Adicione um item da lista do HTMl com classes específicas para o logo, não se esqueça de colocar uma imagem chamada logo.png na mesma pasta do HTML, ou mude o atributo src.</h3>
+         <xmp>
+<li class="nav-logo">
+   <a href="#" class="nav-logo-link">
+      <img class="nav-logo-png" src="logo.png">
+      <h1 class="nav-logo-text">Nome do usuário</h1>
+   </a>
+</li>
+         </xmp>
+         <h3>Formate a cor, o tamanho e o posicionamento dos itens no CSS. O texto surge como se estivesse crescendo pois colocamos o tamanho da fonte igual a 0px e vamos aplicar um hover com tamanho igual a 20px.</h3>
+         <xmp>
+.nav-logo {
+   background-color: rgb(20, 20, 22);
+   padding: 10px 0 10px 0;
+   width: 100%;
+   }
+   
+.nav-logo-png {
+   width: 38px;
+   height: 38px;
+   transition: 600ms;
+   }
+   
+.nav-logo-text {
+   color: #cad9e7;
+   transition: 600ms;
+   font-size: 0px;
+   }
+   
+.nav-logo-link {
+   text-decoration: none;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   }
+             
+         </xmp>
+         <h3>Por fim vamos adicionar um hover simples, para que os elementos aumentar o tamanho dos elementos</h3>
+         <xmp>
+.navbar:hover .nav-logo-text {
+   font-size: 20px;
+}
+
+.navbar:hover .nav-logo-png {
+   width: 100px;
+   height: 100px;
+}
+           
+         </xmp>
+         
+      </div>
+   </main>
+</body>
+</html>
