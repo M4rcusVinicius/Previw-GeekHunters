@@ -6,7 +6,6 @@
    <link rel="stylesheet" href="preview.css">
    <script src="https://kit.fontawesome.com/7128c13a32.js" crossorigin="anonymous"></script>
    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> 
-   <script src="https://kit.fontawesome.com/7128c13a32.js" crossorigin="anonymous"></script>
    <title>NavBar</title>
 </head>
 <body>
@@ -23,10 +22,9 @@
       <div class="article">
          
          <h3>Este artigo tem como objetivo te ensinar a desenvolver uma barra de navegação responsiva com animação utilizando apenas um CSS simples. Melhorando a navegação e o aproveitamento dos clientes do seu site sem muita dificuldade.</h3>
-         <h3>Neste artigo você vamos utilizar conceitos fundamentais de <strong>FlexBox</strong>, que vai nos ajudar a organizar espacialmente os itens da barra de navegação. As animações serão feitas através da função  :hover  do CSS, mudando a disposição dos elementos da NavBar quando o usuário passar o mouse por cima.</h3>
          
          <div class="links">
-            <a class="download button" href="../NavBar.zip" target="_blank">
+            <a class="download button" href="./NavBar.zip" target="_blank">
                <i class="fas fa-cloud-download-alt"></i>
                <span class="download-text">Baixe o arquivo</span>
             </a>
@@ -66,8 +64,8 @@
          </xmp>
          <h3>Essa é uma estrutura básica de um item da NavBar, você pode adicionar quantos itens quiser, apenas acrescentando mais itens na lista "li".</h3>
          <h2>Adicionando ícones</h2>
-         <h3>Os ícones utilizados são importados de <a href="#" class="link">Font Awesome</a>, com mais de 5000 ícones personalizáveis para que você possa escolher o melhor para o seu projeto.</h3>
-         <h3><red>Atenção:</red> <strong>Não se esqueça de colocar o script do Fonts Awesome no seu &lt;head&gt;</strong></h3>
+         <h3>Os ícones utilizados são importados de <a href="#" class="link">Font Awesome</a>um sistema que funciona como se fose uma fonte, porém, ao invés de letras, existem ícones. Permitindo que você altere cores, tamanhos, planos de fundo e outras perssonalizações que não podem ser feitas em imagens.</h3>
+         <h3>A plataforma possui mais de 7.500 icones para que você possa escolher um icone perfeiro para o seu projeto. A implementação é bem simples, <strong></strong>coloque o script do Fonts Awesome necessário para a importação no seu &lt;head&gt;</strong></h3>
          <xmp>
 <script src="https://kit.fontawesome.com/7128c13a32.js" crossorigin="anonymous"></script>
          </xmp>
@@ -155,6 +153,7 @@ body {
 
          <h1 id="animando-a-navbar">Animando a NavBar</h1>
          <h3>Aplicamos o transition anteriormente para que os movimentos sejam mais lentos e possamos ver a animação. Para que a animação aconteça quando o mouse passar por cima da NavBar, vamos utilizar o .navbar:hover.</h3>
+         <h2>Podemos movimentar o texto da posição -999px para 15px depois do canto esquerdo quando passamos o mouse por cima da navbar aplicando o código ".navbar:hover .nav-text". </h2>
          <xmp>
 /* Aumenta a NavBar para 200px */
 .navbar:hover {
@@ -179,6 +178,22 @@ body {
    color: rgb(142, 181, 255);
 }             
          </xmp>
+
+         <h3>Outro "hover" interessante que podemos adcionar, é fazer com que o texto dos itens mova um pouco para a esquerda quando o usuario passar o mouse por cima. Alem disso é importante colocar um ":active" para executar uma ação quando o usuário clicar em um dos itens.</h3>
+
+<xmp>
+.nav-item:hover .nav-text {
+   left: 35px;
+}
+
+.nav-link:active {
+   background-color: #373e50;
+}
+
+.nav-logo:active {
+   background-color: black;
+}
+</xmp>
 
          <h2 id="animando-os-itens">Adicionando animações nos itens</h2>
          <h3>Como o posicionamento dos itens são dinâmicos, os itens se posicionam automaticamente ao alterar o tamanho de um dos ítens. Pensando nisso podemos criar uma foto de perfil que com um layout um pouco diferente dos outros itens.</h3>
@@ -231,7 +246,8 @@ body {
 }
            
          </xmp>
-         
+         <h2>Conclusão</h2>
+         <h3>Nesta simples navbar, utlizamos conceitos fundamentais de posicionamento ulilizando o FlxBox e de animação ultlizando o :hover. Com certeza essas funcionalidades do CSS são extremamente úteis para o desenvolvimento de uma pagina web e facilitam a nossa vida, pois possibilita o desenvolvimento de elementos animados e responsivos sem precizar de scripts complexos de JavaScript. Agora você pode utilizar estes conhecimentos para customizar sua própria NavBar e criarr outros elementos para o seu site.</h3>
       </div>
    </main>
 </body>
